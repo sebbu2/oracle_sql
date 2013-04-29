@@ -14,7 +14,7 @@ import java.util.*;
  *
  * @author sebbu
  */
-public class oracle_sql {
+public class OracleSql {
 	
 	private static Connection connect;
 	private static String login="sb177359";//lowercase mandatory
