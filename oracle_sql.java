@@ -44,8 +44,8 @@ public class oracle_sql {
 		System.out.println(s);
 	}
 	
-	// <editor-fold defaultstate="collapsed" desc="ListAll() List all objects">
-	public static void ListAll() {
+	// <editor-fold defaultstate="collapsed" desc="listAll() List all objects">
+	public static void listAll() {
 		try {
 			//liste des tables, view, synonyms
 			//sql = "SELECT TNAME, TABTYPE FROM TAB ORDER BY TNAME ASC";
@@ -105,8 +105,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListTabComments() List all table comments">
-	public static void ListTabComments() {
+	// <editor-fold defaultstate="collapsed" desc="listTabComments() List all table comments">
+	public static void listTabComments() {
 		try {
 			//liste des commentaires de tables
 			sql = "SELECT TABLE_NAME, COMMENTS FROM USER_TAB_COMMENTS WHERE COMMENTS IS NOT NULL ORDER BY TABLE_NAME";
@@ -133,8 +133,8 @@ public class oracle_sql {
 
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListColComments() List all column comments">
-	public static void ListColComments() {
+	// <editor-fold defaultstate="collapsed" desc="listColComments() List all column comments">
+	public static void listColComments() {
 		try {
 			//liste des commentaires de colonnes de tables
 			sql = "SELECT TABLE_NAME, COLUMN_NAME, COMMENTS FROM USER_COL_COMMENTS WHERE COMMENTS IS NOT NULL ORDER BY TABLE_NAME";
@@ -162,8 +162,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListRelTabColumns() List all relationnal table columns">
-	public static void ListRelTabColumns() {
+	// <editor-fold defaultstate="collapsed" desc="listRelTabColumns() List all relationnal table columns">
+	public static void listRelTabColumns() {
 		try {
 			//liste des colonnes des tables relationnelles ( create table )
 			/*sql="SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_TYPE_MOD, DATA_LENGTH, DATA_PRECISION, DATA_SCALE, NULLABLE, DATA_DEFAULT\n"+
@@ -269,8 +269,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListObjTables() List all object table">
-	public static void ListObjTables() {
+	// <editor-fold defaultstate="collapsed" desc="listObjTables() List all object table">
+	public static void listObjTables() {
 		try {
 			//liste des colonnes des tables objets ( create table ... of )
 			sql="SELECT TABLE_NAME, OBJECT_ID_TYPE, TABLE_TYPE FROM USER_OBJECT_TABLES WHERE NESTED='NO'";
@@ -302,8 +302,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListTypes() List all types">
-	public static void ListTypes() {
+	// <editor-fold defaultstate="collapsed" desc="listTypes() List all types">
+	public static void listTypes() {
 		try {
 			//liste des types
 			sql = "SELECT NAME, CONCAT( DECODE(SUBSTR(UPPER(TEXT),0,4),'TYPE','CREATE ',''), TEXT ) FROM USER_SOURCE WHERE TYPE='TYPE' ORDER BY NAME,LINE";
@@ -342,8 +342,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListIndexes() List all indexes">
-	public static void ListIndexes() {
+	// <editor-fold defaultstate="collapsed" desc="listIndexes() List all indexes">
+	public static void listIndexes() {
 		try {
 			//liste des indexes ( sans uniques et primary key )
 			/*sql = "select ui.INDEX_NAME, ui.TABLE_NAME, UNIQUENESS, "+//"INCLUDE_COLUMN, TABLE_OWNER, "+
@@ -425,8 +425,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListConstraints() List all constraints">
-	public static void ListConstraints() {
+	// <editor-fold defaultstate="collapsed" desc="listConstraints() List all constraints">
+	public static void listConstraints() {
 		try {
 			//liste des contraintes
 			sql = "select UCC.TABLE_NAME, UCC.CONSTRAINT_NAME, UCC.COLUMN_NAME, "+//"UCC.POSITION, "+
@@ -524,8 +524,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListViews() List all views">
-	public static void ListViews() {
+	// <editor-fold defaultstate="collapsed" desc="listViews() List all views">
+	public static void listViews() {
 		try {
 			//liste des vues
 			sql = "select UV.VIEW_NAME, UV.TEXT\n"+//", UTC.COMMENTS\n"+
@@ -556,8 +556,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListSequences() List all sequences">
-	public static void ListSequences() {
+	// <editor-fold defaultstate="collapsed" desc="listSequences() List all sequences">
+	public static void listSequences() {
 		try {
 			//liste des sequences
 			sql = "select SEQUENCE_NAME, MIN_VALUE, MAX_VALUE, INCREMENT_BY, CYCLE_FLAG, ORDER_FLAG, CACHE_SIZE, LAST_NUMBER\n"+
@@ -608,8 +608,8 @@ public class oracle_sql {
 		}
 	}// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListDbLinks() List all db links">
-	public static void ListDbLinks() {
+	// <editor-fold defaultstate="collapsed" desc="listDbLinks() List all db links">
+	public static void listDbLinks() {
 		try {
 			//liste db_links
 			sql="select OWNER, USERNAME, HOST, regexp_replace(DB_LINK,'.REGRESS.RDBMS.DEV.US.ORACLE.COM$') as DB_LINK from ALL_DB_LINKS order by DB_LINK";
@@ -647,8 +647,8 @@ public class oracle_sql {
 	}
 	// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListSynonyms() List all synonyms">
-	public static void ListSynonyms() {
+	// <editor-fold defaultstate="collapsed" desc="listSynonyms() List all synonyms">
+	public static void listSynonyms() {
 		try {
 			//liste des synonymes
 			sql="select SYNONYM_NAME, TABLE_OWNER, TABLE_NAME, regexp_replace(DB_LINK,'.REGRESS.RDBMS.DEV.US.ORACLE.COM$','',1,0,'i') as DB_LINK\n"+
@@ -683,8 +683,8 @@ public class oracle_sql {
 	}
 	// </editor-fold>
 	
-	// <editor-fold defaultstate="collapsed" desc="ListTriggers() List all triggers">
-	public static void ListTriggers() {
+	// <editor-fold defaultstate="collapsed" desc="listTriggers() List all triggers">
+	public static void listTriggers() {
 		try {
 			//liste des triggers
 			sql = "select TRIGGER_NAME, TRIGGER_TYPE, TRIGGERING_EVENT, TABLE_NAME, REFERENCING_NAMES, WHEN_CLAUSE, STATUS, DESCRIPTION, ACTION_TYPE,\n"+
@@ -746,7 +746,7 @@ public class oracle_sql {
 	// </editor-fold>
 	
 	// <editor-fold defaultstate="collapsed" desc="ListProcedures() List all procedures">
-	public static void ListProcedures() {
+	public static void listProcedures() {
 		try {
 			//liste des PROCEDURE, PACKAGE, PACKAGE BODY, TRIGGER, FUNCTION, TYPE
 			/*sql="select NAME, TYPE, "+//"LINE, "+
@@ -796,7 +796,7 @@ public class oracle_sql {
 	}
 	// </editor-fold>
 	
-	// <editor-fold default@state="collapsed" desc="ListTypes() List types">
+	// <editor-fold default@state="collapsed" desc="listTypes() List types">
 	// </editor-fold>
 	//sql
 	
@@ -853,33 +853,33 @@ public class oracle_sql {
 			println("");
 			init();println("");
 			println("-- List all objects");
-			ListAll();println("");
+			listAll();println("");
 			println("-- List table comments");
-			ListTabComments();println("");
+			listTabComments();println("");
 			println("-- List column comments");
-			ListColComments();println("");
+			listColComments();println("");
 			println("-- List relationnal table columns");
-			ListRelTabColumns();println("");
+			listRelTabColumns();println("");
 			println("-- List object tables");
-			ListObjTables();println("");
+			listObjTables();println("");
 			println("-- List types");
-			ListTypes();println("");
+			listTypes();println("");
 			println("-- List indexes");
-			ListIndexes();println("");
+			listIndexes();println("");
 			println("-- List constraints");
-			ListConstraints();println("");
+			listConstraints();println("");
 			println("-- List views");
-			ListViews();println("");
+			listViews();println("");
 			println("-- List sequences");
-			ListSequences();println("");
+			listSequences();println("");
 			println("-- List db links");
-			ListDbLinks();println("");
+			listDbLinks();println("");
 			println("-- List synonyms");
-			ListSynonyms();println("");
+			listSynonyms();println("");
 			println("-- List triggers");
-			ListTriggers();println("");
+			listTriggers();println("");
 			println("-- List procedures");
-			ListProcedures();println("");
+			listProcedures();println("");
 			// </editor-fold>
 			//end
 			//rset.close();//shouldn't be needed
